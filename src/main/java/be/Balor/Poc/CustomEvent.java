@@ -21,7 +21,7 @@ import be.Balor.Poc.TestListener;
 /**
  * AdminCmd for Bukkit (fork of PlgEssentials)
  * 
- * @authors Plague, Balor
+ * @authors Balor
  */
 public class CustomEvent extends JavaPlugin {
 	private static Server server = null;
@@ -31,7 +31,6 @@ public class CustomEvent extends JavaPlugin {
 	}
 
 	public static final Logger log = Logger.getLogger("Minecraft");
-
 
 	public void onEnable() {
 		server = getServer();
@@ -64,9 +63,10 @@ public class CustomEvent extends JavaPlugin {
 		log.info("[" + pdfFile.getName() + "]" + " Plugin Disabled. (version "
 				+ pdfFile.getVersion() + ")");
 	}
+
 	@Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		getServer().getPluginManager().callEvent(new PlayerTestEvent("Command issued"));
-        return true;
-    }
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		getServer().getPluginManager().callEvent(new PlayerTestEvent("Command issued", sender));
+		return true;
+	}
 }
