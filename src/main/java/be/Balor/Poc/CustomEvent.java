@@ -3,6 +3,8 @@ package be.Balor.Poc;
 import java.util.logging.Logger;
 
 import org.bukkit.Server;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
 import org.bukkit.event.Event.Category;
@@ -59,4 +61,9 @@ public class CustomEvent extends JavaPlugin {
 		log.info("[" + pdfFile.getName() + "]" + " Plugin Disabled. (version "
 				+ pdfFile.getVersion() + ")");
 	}
+	@Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		getServer().getPluginManager().callEvent(new PlayerTestEvent("Command issued"));
+        return true;
+    }
 }
