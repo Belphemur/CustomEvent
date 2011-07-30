@@ -1,0 +1,7 @@
+*.class
+*.jar
+nbproject*
+build*
+manifest.mf
+.settings*
+target*

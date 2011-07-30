@@ -54,6 +54,9 @@ public class CustomEvent extends JavaPlugin {
 
 					}
 				}, Priority.Normal, this);
+		PluginDescriptionFile pdfFile = this.getDescription();
+		log.info("[" + pdfFile.getName() + "]" + " Plugin Enabled. (version "
+				+ pdfFile.getVersion() + ")");
 	}
 
 	public void onDisable() {
