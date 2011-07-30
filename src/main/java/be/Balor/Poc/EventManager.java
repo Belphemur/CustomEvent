@@ -42,13 +42,11 @@ public class EventManager {
 			Object listeners = getPrivateField(pm, "listeners");
 			if (listeners instanceof EnumMap) {
 				HashMap<Event.Type, SortedSet<RegisteredListener>> tmp = new HashMap<Event.Type, SortedSet<RegisteredListener>>(
-						((Map<Event.Type, SortedSet<RegisteredListener>>) getPrivateField(plugin
-								.getServer().getPluginManager(), "listeners")));
+						((Map<Event.Type, SortedSet<RegisteredListener>>) listeners));
 				tmp.put(Event.Type.valueOf(name), null);
 				setPrivateField(pm, "listeners", tmp);
 			} else
-				(((Map<Event.Type, SortedSet<RegisteredListener>>) getPrivateField(plugin
-						.getServer().getPluginManager(), "listeners"))).put(
+				((Map<Event.Type, SortedSet<RegisteredListener>>) listeners).put(
 						Event.Type.valueOf(name), null);
 			setFieldAccessibility(pm, "listeners", false);
 		} catch (SecurityException e) {
