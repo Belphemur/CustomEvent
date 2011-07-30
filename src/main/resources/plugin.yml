@@ -1,0 +1,9 @@
+name: CustomEvent
+main: be.Balor.Poc.CustomEvent
+version: 0.1
+author: Balor
+description: >
+             POC of Custom Event
+commands:
+  testevent:
+    description: Test the event
